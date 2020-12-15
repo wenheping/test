@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+html{
+      height:100%;
+      width:100%;
+      }
+body{
+      height:100%;
+      width:100%;
+      background: #ADADAD;
+      margin:0;
+      padding:0;
+      }
+#h_left{
+      width: 20%;
+      height: 100%;
+      float: left;
+      text-align:left;
+      font-size:14px;
+      }
+#h_right{
+      width: 80%;
+      height: 100%;
+      float: left;
+      text-align:left;
+      }
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jstree.min.js"></script>
+<link rel="stylesheet" href="js/themes/default/style.min.css" />
+
+<div id="h_left">dili</div>
+<script>
+$(function() {
+  $('#h_left').jstree({
+    'core' : {
+      'data' : [
+        { "id":"mis1", "text" : "gaokao", "children" : [
+          { "id":"mis11", "text" : "bixiu1", "children": [
+            { "id":"dis1", "text" : "di1zhang" },
+            { "id":"dis2", "text" : "di2zhang" },
+            { "id":"dis3", "text" : "di3zhang" }
+            ] 
+          }, 
+          { "id":"mis12", "text" : "bixiu2" },
+          { "id":"mis13", "text" : "bixiu3" }
+       ]
+       }
+     ]
+     }
+  });
+
+$('#h_left').on("changed.jstree", function (e, data) {
+    alert("The selected nodes are:"+data.selected);
+  });
+});
+
+</script>
+
+<div id="h_right"></div>
+<script>
+$(function() {
+  $('#h_right').jstree({
+    'core' : {
+      'data' : [
+        {"id" : "gaokao", "text" : "gaokao"},
+        {"id" : 2, "text" : "bixiuyi"},
+        {"id" : 3, "text" : "bixiuer"},
+        {"id" : 4, "text" : "bixiusan"}
+      ]
+    }
+  });
+  $('#h_right').on("changed.jstree", function (e, data) {
+    alert("The selected nodes are:"+data.id);
+  });
+});
+</script>
