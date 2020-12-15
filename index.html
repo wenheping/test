@@ -2,6 +2,9 @@
 <html>
 <head>
 
+<meta charset="UTF-8">
+<title>New papr system !</title>
+
 <style type="text/css">
 html{
       height:100%;
@@ -19,7 +22,7 @@ body{
       height: 100%;
       float: left;
       text-align:left;
-      font-size:14px;
+      font-size:12px;
       }
 #h_right{
       width: 80%;
@@ -41,8 +44,8 @@ $(function() {
       'data' : [
         { "id":"mis1", "text" : "必修一", "children" : [
           { "id":"mis11", "text" : "第一章", "children": [
-            { "id":"dis1", "text" : "第一节" },
-            { "id":"dis2", "text" : "第二节" },
+            { "id":"paper1", "text" : "第一节" },
+            { "id":"paper2", "text" : "第二节" },
             { "id":"dis3", "text" : "第三节" }
             ] 
           }, 
@@ -55,27 +58,17 @@ $(function() {
   });
 
 $('#h_left').on("changed.jstree", function (e, data) {
-    alert("The selected nodes are:"+data.selected);
+    string1="<object data='pdf/"
+    string1+=data.selected
+    string1+=".pdf#page=1' type='application/pdf' width='100%' height='100%'>"
+    $("#h_right").html(string1);
   });
 });
 
 </script>
 
-<div id="h_right"></div>
-<script>
-$(function() {
-  $('#h_right').jstree({
-    'core' : {
-      'data' : [
-        {"id" : "gaokao", "text" : "gaokao"},
-        {"id" : 2, "text" : "bixiuyi"},
-        {"id" : 3, "text" : "bixiuer"},
-        {"id" : 4, "text" : "bixiusan"}
-      ]
-    }
-  });
-  $('#h_right').on("changed.jstree", function (e, data) {
-    alert("The selected nodes are:"+data.id);
-  });
-});
-</script>
+<div id="h_right">
+  <object data="pdf/notfound.pdf#page=1" type="application/pdf" width="100%" height="100%">
+  <p>I am sorry <a href="paper1.pdf"></a></p>
+  </object>
+</div>
