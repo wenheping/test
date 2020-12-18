@@ -22,10 +22,10 @@ $(function() {
   });
 
 $('#c_left').on("changed.jstree", function (e, data) {
-    string1="<object data='pdf/"
-    string1+=data.selected
-    string1+=".pdf#page=1' type='application/pdf' width='100%' height='100%'>"
-    $("#c_right").html(string1);
+  string1="<object data='pdf/"
+  string1+=data.selected
+  string1+=".pdf#page=1' type='application/pdf' width='100%' height='100%'>"
+  $("#c_right").html(string1);
   });
 });
 </script>
